@@ -1,9 +1,10 @@
-import "./Expenses.css";
-import { ExpenseItem } from "./ExpenseItem";
-import { Card } from "./Card";
+import React from 'react';
+import './Expenses.css';
+import { ExpenseItem } from './ExpenseItem';
+import { Card } from '../UI/Card';
 
 //Containes the individual expense items and the container div
-export const Expenses = (props) => {
+export const Expenses = props => {
   return (
     <Card className="expenses">
       <ExpenseItem
