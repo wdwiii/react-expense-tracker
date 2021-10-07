@@ -2,7 +2,7 @@ import './ExpenseForm.css';
 import { useState } from 'react';
 
 //Form component that holds input for Name, Amount, and Date
-export const ExpenseForm = () => {
+export const ExpenseForm = props => {
   //use State to store values for input
   //create functions to watch the values of the input fields
   //Add onChange prop to input fields to update value when any change is made
@@ -17,13 +17,18 @@ export const ExpenseForm = () => {
 
   const submitHandler = event => {
     event.preventDefault();
+    //object that will hold all of the current state values
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
 
-    console.log(expenseData);
+    //two way binding that allows form fields to clear upon submission
+    props.onSaveExpenseData(expenseData);
+    setEnteredTitle('');
+    setEnteredAmount('');
+    setEnteredDate('');
   };
 
   return (
@@ -31,7 +36,11 @@ export const ExpenseForm = () => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHandler} />
+          <input
+            type="text"
+            value={enteredTitle}
+            onChange={titleChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -39,6 +48,7 @@ export const ExpenseForm = () => {
             type="number"
             min="0.01"
             step="0.01"
+            value={enteredAmount}
             onChange={amountChangeHandler}
           />
         </div>
@@ -48,6 +58,7 @@ export const ExpenseForm = () => {
             type="date"
             min="2019-01-01"
             max="2022-13-31"
+            value={enteredDate}
             onChange={dateChangeHandler}
           />
         </div>
