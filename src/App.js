@@ -23,6 +23,12 @@ function App() {
       amount: 450,
       date: new Date(2021, 5, 12),
     },
+    {
+      id: 'e5',
+      title: 'PlayStation 5',
+      amount: 499.95,
+      date: new Date(2021, 1, 23),
+    },
   ];
 
   const addExpenseHandler = expense => {
