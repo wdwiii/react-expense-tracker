@@ -96,6 +96,10 @@ export const ExpenseForm = props => {
           />
         </div>
         <div className="new-expense__actions">
+          {/* Sets isEditing state to false and hides form */}
+          <button type="button" onClick={props.endEditingMode}>
+            Cancel
+          </button>
           <button type="submit">Submit</button>
         </div>
       </div>
