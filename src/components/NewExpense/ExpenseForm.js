@@ -53,7 +53,7 @@ export const ExpenseForm = props => {
     //object that will hold all of the current state values
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount, //'+' is added to convert the input from a string to a number and hence make sure that numbers are added (and not strings concatenated).
       date: new Date(enteredDate),
     };
 
